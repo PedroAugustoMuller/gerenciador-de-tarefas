@@ -10,7 +10,8 @@ body{
     font-family: sans-serif;
 }
 .container{
-    background-color: #ffff;
+    background-color: #ffffff;
+    border-radius: 20px;
     max-width: 450px;
     margin-top: 5%;
     margin-right: auto;
@@ -39,7 +40,7 @@ body{
 
 .form label{
     font-weight: bold;
-    maring-top: 4px;
+    margin-top: 4px;
     margin-bottom: 4px;
 }
 
@@ -50,4 +51,70 @@ body{
     padding-left: 12px;
     border: 1px solid black;
     border-radius: 5px;
+}
+
+.form ipunt:focus{
+    background: #f0f0f0;
+}
+
+.form button{
+    background: #52abd1;
+    height: 32px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    transition: background 0.4s;
+}
+
+.form button:hover{
+    background: #4798bb;;
+}
+
+.separator {
+    background: gray;
+    height: 2px;
+    border-radius: 1px;
+}
+
+.list-tasks{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.list-tasks ul {
+    list-style: none;
+}
+
+.list-tasks ul li{
+    background: #5b62c4;
+    height: 44px;
+    border-radius: 4px;
+    color: #fff;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 12px;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+    transition: background 0.4s;
+}
+
+.list-tasks ul li:hover{
+    background: #404591;
+}
+
+.footer {
+    background: #f0f0f5;
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.footer p {
+    color: gray;
+    font-size: 12px;
 }
