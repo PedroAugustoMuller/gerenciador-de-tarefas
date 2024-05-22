@@ -5,11 +5,6 @@ if (!isset($_SESSION['tasks']))
 {
     $_SESSION['tasks'] = array(); 
 }
-if (isset($_GET['clear']))
-{
-    unset($_SESSION['tasks']);
-    unset($_GET['clear']);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,10 +69,6 @@ if (isset($_GET['clear']))
                     echo "</ul>";
                 }
             ?>
-            <form action="" method="get">
-                <input type="hidden" name="clear" value="clear">
-                <button type="submit" class="btn-clear">Limpar Tarefas</button>
-            </form>
         </div>
         <div class="footer">
             <p>Desenvolvido por Pedro Müller</p>
