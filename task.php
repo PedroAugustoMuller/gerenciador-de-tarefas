@@ -10,9 +10,9 @@ if (isset($_POST['task_name']))
 
         if(isset($_FILES['task_image']))
         {
-            $ext = strtolower(substr($_FILES['task_image']['name'],4));
+            $ext = strtolower(substr($_FILES['task_image']['name'],-4));
             $file_name = md5(date('Y.m.d.H.i.s')). $ext;
-            $dir = '/uploads';
+            $dir = 'uploads/';
 
             move_uploaded_file($_FILES['task_image']['tmp_name'],$dir.$file_name);
         }
