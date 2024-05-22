@@ -23,6 +23,20 @@ $stmt->setFetchMode(PDO::FETCH_ASSOC);
 </head>
 <body>
     <div class="container">
+        <?php
+        if(isset($_SESSION['success']))
+        ?>
+        <div class="alert-success"><?php echo $_SESSION['success']?></div>
+        <?php
+        unset($_SESSION['success']);
+        ?>
+        <?php
+        if(isset($_SESSION['errr']))
+        ?>
+        <div class="alert-error"><?php echo $_SESSION['error']?></div>
+        <?php
+        unset($_SESSION['error']);
+        ?>
         <div class="header">
             <h1>Gerenciador de Tarefas</h1>
         </div>

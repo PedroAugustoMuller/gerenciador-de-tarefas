@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . 'controller.php';
+
 session_start();
 
 //RELIZA O CADASTRO DAS TASKS
@@ -24,13 +27,26 @@ if (isset($_POST['task_name']))
             'task_image' => $file_name
         ];
 
-        array_push($_SESSION['tasks'], $data);
+        $stmt = $conn ->prepare('INSERT INTO task_manager (task_name, task_description, task_image, task_date) 
+        VALUES(:name,:description,:image,:date)');
+        $stmt->bindParam('name',$_POST['task_name']);
+        $stmt->bindParam('description',$_POST['task_description']);
+        $stmt->bindParam('image',$file_name);
+        $stmt->bindParam('date',$_POST['task_date']);
+
+        if($stmt->execute())
+        {
+            $_SESSION['success'] = "Dados cadastrados";
+            header('Location: index.php');
+        }
+        else
+        {
+            $_SESSION['error'] = "Dados não cadastrados";
+            header('Location: index.php');
+        }
         unset($_POST['task_name']);
         unset($_POST['task_description']);
         unset($_POST['task_date']);
-
-
-        header('Location:index.php');
     }
     else 
     {
@@ -42,7 +58,17 @@ if (isset($_POST['task_name']))
 //REMOVE TASKS
 if (isset($_GET['key']))
 {
-    array_splice($_SESSION['tasks'], $_GET['key'], 1);
-    unset($_GET['key']);
-    header('Location:index.php');
+    $stmt-> $conn->prepare('DELETE FROM task_manager WHERE id=:id');
+    $stmt->bindParam(':id',$_GET['key']);
+
+    if($stmt->execute())
+    {
+        $_SESSION['success'] = "Dados Removidos";
+        header('Location: index.php');
+    }
+    else
+    {
+        $_SESSION['error'] = "Dados não removidos";
+        header('Location: index.php');
+    }
 }

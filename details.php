@@ -1,8 +1,15 @@
 <?php
 
+require_once __DIR__ . '/controller.php';
+
 session_start();
 
-$data = $_SESSION['tasks'][$_GET['key']];
+$stmt = $conn->prepare('SELECT * FROM task_manager WHERE id=:id');
+$stmt->bindParam(':id',$_GET['key']);
+$stmt->execute();
+$data = $stmt->fetchAll();
+
+var_dump($data);
 ?>
 
 <!DOCTYPE html>
