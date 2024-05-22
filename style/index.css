@@ -9,6 +9,24 @@ body{
     color: darkslategray;
     font-family: sans-serif;
 }
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration:none;
+}
+
+a:hover{
+    font-weight:bold ;
+}
+
 .container{
     background-color: #ffffff;
     border-radius: 20px;
@@ -130,6 +148,8 @@ body{
 }
 
 .footer p {
+    display: flex;
+    justify-content: center;
     color: gray;
     font-size: 12px;
 }
